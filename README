@@ -1,0 +1,6 @@
+Put following into ~/.profile file (for OS X Terminal.app) and ~/.bashrc (for emacs shell)
+
+# fuck - just use ~/.bashrc dude
+if [ -f ~/bash/.bashrc ]; then
+. ~/bash/.bashrc
+fi
