@@ -6,11 +6,8 @@ fi
 # if cur username is maryrosecook, rewrite to mrc for prompt string
 prompt_username=`id -nu`
 if [[ "${prompt_username}" = "maryrosecook" ]]; then
-    prompt_username='mrc'
+   prompt_username='mrc'
 fi
-
-# set prompt
-PS1='${prompt_username}@\h:\w $ '
 
 # Make bash check its window size after a process completes
 shopt -s checkwinsize
@@ -28,3 +25,8 @@ export GEM_EDITOR='mate'
 export NODE_PATH="/usr/local/lib/node"
 
 export CC=gcc-4.2
+
+# set prompt
+PS1='${prompt_username}@mrc:\w $ '
+
+function set_keys() { eval `gpg -d ~/set_benchmarking_aws_account_keys.sh.gpg`; }
