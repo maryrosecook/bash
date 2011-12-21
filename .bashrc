@@ -9,6 +9,11 @@ if [[ "${prompt_username}" = "maryrosecook" ]]; then
    prompt_username='mrc'
 fi
 
+# enable bash completion
+if [ -f /etc/bash_completion ]; then
+. /etc/bash_completion
+fi
+
 # Make bash check its window size after a process completes
 shopt -s checkwinsize
 
@@ -19,10 +24,14 @@ shopt -s checkwinsize
 alias ls='ls -l'
 alias be='bundle exec'
 
+# add node to path
+export PATH=$HOME/local/bin:$PATH
+
 # gem open
 export GEM_EDITOR='mate'
+export EDITOR='mate'
 
-export NODE_PATH="/usr/local/lib/node"
+export NODE_PATH="/Users/maryrosecook/local/bin"
 
 export CC=gcc-4.2
 
@@ -30,3 +39,7 @@ export CC=gcc-4.2
 PS1='${prompt_username}@mrc:\w $ '
 
 function set_keys() { eval `gpg -d ~/set_benchmarking_aws_account_keys.sh.gpg`; }
+
+# terminal colours
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
