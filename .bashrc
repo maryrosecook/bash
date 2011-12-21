@@ -23,6 +23,7 @@ shopt -s checkwinsize
 # aliases
 alias ls='ls -l'
 alias be='bundle exec'
+alias gs='git status'
 
 # add node to path
 export PATH=$HOME/local/bin:$PATH
@@ -37,8 +38,6 @@ export CC=gcc-4.2
 
 # set prompt
 PS1='${prompt_username}@mrc:\w $ '
-
-function set_keys() { eval `gpg -d ~/set_benchmarking_aws_account_keys.sh.gpg`; }
 
 # terminal colours
 export CLICOLOR=1
