@@ -3,11 +3,23 @@ if [ -z "$PS1" ]; then
    return
 fi
 
-# if cur username is maryrosecook, rewrite to mrc for prompt string
-prompt_username=`id -nu`
-if [[ "${prompt_username}" = "maryrosecook" ]]; then
-   prompt_username='mrc'
-fi
+# start quick python server and open webpage, passing optional port
+function serve() {
+    if [ $# -ne 1 ]; then
+      let port=8000+0
+    else
+      let port=$@
+    fi
+
+    open http://localhost:$port && python -m SimpleHTTPServer "$port" ;
+}
+
+# set prompt
+PS1='mrc:\w $ '
+
+# terminal colours
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # enable bash completion
 if [ -f /etc/bash_completion ]; then
@@ -24,21 +36,14 @@ shopt -s checkwinsize
 alias ls='ls -l'
 alias be='bundle exec'
 alias gs='git status'
+alias gl='git log'
 
 # add node to path
 export PATH=$HOME/local/bin:$PATH
+export NODE_PATH="/Users/maryrosecook/local/bin"
 
 # gem open
 export GEM_EDITOR='mate'
 export EDITOR='mate'
 
-export NODE_PATH="/Users/maryrosecook/local/bin"
-
 export CC=gcc-4.2
-
-# set prompt
-PS1='${prompt_username}@mrc:\w $ '
-
-# terminal colours
-export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
