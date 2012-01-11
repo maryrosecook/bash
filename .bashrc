@@ -22,9 +22,27 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # enable bash completion
-if [ -f /etc/bash_completion ]; then
-. /etc/bash_completion
+
+# put bash_completion script file in /etc, add bash_completion.d folder
+# and put completion scripts into it
+
+
+[ -z "$BASH_VERSION" -o -n "$BASH_COMPLETION" ] && return
+
+# Check for recent enough version of bash.
+bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
+
+# Check for interactive shell.
+if [ -n "$PS1" ]; then
+  if [ $bmajor -eq 2 -a $bminor '>' 04 ] || [ $bmajor -gt 2 ]; then
+    if [ -r /etc/bash_completion ]; then
+      # Source completion code.
+      . /etc/bash_completion
+    fi
+  fi
 fi
+unset bash bminor bmajor
+
 
 # Make bash check its window size after a process completes
 shopt -s checkwinsize
