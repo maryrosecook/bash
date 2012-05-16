@@ -66,7 +66,7 @@ alias be='bundle exec'
 alias gs='git status'
 alias gl='git log'
 
-# add node to path
+# add node and lein to path
 export PATH=$HOME/local/bin:$PATH
 export NODE_PATH="/Users/maryrosecook/local/bin"
 
@@ -75,3 +75,11 @@ export GEM_EDITOR='mate'
 export EDITOR='mate'
 
 export CC=gcc-4.2
+
+# rename tabs/windows in OS X Terminal.app
+function tn {
+  printf "\e]1;$1\a"
+}
+
+# add clojure to classpath
+export CLASSPATH="$CLASSPATH:$HOME/.lein/self-installs/leiningen-VERSION-standalone.jar"
