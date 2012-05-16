@@ -3,6 +3,8 @@ if [ -z "$PS1" ]; then
    return
 fi
 
+############# handy functions
+
 # start quick python server and open webpage, passing optional port
 function serve() {
     if [ $# -ne 1 ]; then
@@ -13,6 +15,14 @@ function serve() {
 
     open http://localhost:$port && python -m SimpleHTTPServer "$port" ;
 }
+
+# do interactive git rebase at passed revision index
+function gr() {
+    let revisionIndex=$@
+    git rebase -i HEAD~$revisionIndex;
+}
+
+
 
 # set prompt
 PS1='mrc:\w $ '
