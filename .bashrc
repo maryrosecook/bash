@@ -13,7 +13,7 @@ function serve() {
       let port=$@
     fi
 
-    open http://localhost:$port && python -m SimpleHTTPServer "$port" ;
+    open http://localhost:$port && python -m SimpleHTTPServer "$port";
 }
 
 # do interactive git rebase at passed revision index
