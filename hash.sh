@@ -93,3 +93,6 @@ chflags nohidden ~/Library
 
 echo "Disable local Time Machine backups"
 hash tmutil &> /dev/null && sudo tmutil disablelocal
+
+echo "Enable keyboard repeat"
+defaults write -g ApplePressAndHoldEnabled -bool false
