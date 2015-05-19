@@ -1,6 +1,5 @@
-Put following into ~/.profile file (for OS X Terminal.app) and ~/.bashrc (for emacs shell)
+If this repo is cloned to ~/code/bash then put the following into ~/.profile file (for OS X Terminal.app) and ~/.bashrc (for emacs shell)
 
-# fuck - just use ~/.bashrc dude
-if [ -f ~/bash/.bashrc ]; then
-. ~/bash/.bashrc
+if [ -f ~/code/bash/.bashrc ]; then
+. ~/code/bash/.bashrc
 fi
