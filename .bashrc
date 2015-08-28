@@ -16,10 +16,10 @@ fi
 
 # color codes
 RESET="\[\033[0m\]"
-BLUE="\[\033[34m\]"
-YELLOW="\[\033[33m\]"
-RED="\[\033[31m\]"
-RED_BOLD="\[\033[1;31m\]"
+BLUE="\[\033[0;34m\]"
+YELLOW="\[\033[0;33m\]"
+RED="\[\033[0;31m\]"
+RED_BOLD="\[\033[0;31m\]"
 
 # colorized and git-orized prompt
 export PS1="$BLUE\w$YELLOW\$(__git_ps1) $RED_BOLD> $RESET"
