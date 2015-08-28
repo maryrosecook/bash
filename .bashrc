@@ -49,6 +49,9 @@ PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
+# set editor to emacs
+export EDITOR=/Applications/Emacs.app
+
 # use stuff in brew path over stuff in usr/bin
 PATH=/usr/local/bin:$PATH
 
